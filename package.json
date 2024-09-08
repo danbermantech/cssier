@@ -15,8 +15,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/cssier.es.js",
       "require": "./dist/cssier.umd.js"
-    },
-    "./dist/style.css": "./dist/style.css"
+    }
   },
   "engines": {
     "node": "20"
