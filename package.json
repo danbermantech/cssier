@@ -1,7 +1,7 @@
 {
   "name": "cssier",
   "private": false,
-  "version": "0.1.1",
+  "version": "0.1.2",
   "packageManager": "pnpm@8.4.0",
   "repository": {
     "type": "git",
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "build": "npm run generate && storybook build && npm run cleanup",
     "build:lib": "npm run generate && tsc && vite build && npm run cleanup",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --fix",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,js,mdx}\"",
@@ -30,6 +30,7 @@
     "test:cov": "vitest run --coverage",
     "prepare": "husky install",
     "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\"",
+    "prepublishOnly": "npm run build:lib",
     "generate": "node scripts/generate",
     "cleanup": "node scripts/cleanup"
   },
