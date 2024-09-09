@@ -30,7 +30,6 @@ export type PseudoClass =
   | 'target'
   | 'valid'
   | 'visited'
-export declare const PseudoClasses: PseudoClass[]
 export type PseudoElement =
   | 'part'
   | 'theme'
@@ -116,7 +115,11 @@ export type PseudoElement =
   | 'part(menu-label)'
   | 'part(list-group)'
   | 'part(list-item)'
-export declare const PseudoElements: PseudoElement[]
+type CssVariable = `--${string}`
+export type ExtendedCssProperties = React.CSSProperties & {
+  [key: CssVariable]: string
+}
 export type PseudoCss = Partial<{
   [key in PseudoClass | 'neutral' | PseudoElement]: React.CSSProperties | PseudoCss
 }>
+export {}

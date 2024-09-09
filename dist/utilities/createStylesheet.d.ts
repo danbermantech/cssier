@@ -1,2 +1,2 @@
-import { PseudoCss } from '../types'
+import type { PseudoCss } from '../types'
 export default function createStylesheet(pseudoId: string, styles: PseudoCss | undefined): string

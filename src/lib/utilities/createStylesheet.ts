@@ -1,4 +1,5 @@
-import { PseudoClasses, PseudoCss, PseudoElements } from '../types'
+import type { PseudoCss } from '../types'
+import { PseudoClasses, PseudoElements } from '../consts'
 
 export default function createStylesheet(pseudoId: string, styles: PseudoCss | undefined) {
   // Check if there are styles to apply
@@ -36,10 +37,8 @@ export default function createStylesheet(pseudoId: string, styles: PseudoCss | u
         pseudoClass in PseudoClasses,
         pseudoClass in PseudoElements,
       )
-      // throw new Error(`Invalid pseudo class: ${pseudoClass}`)
     }
 
-    // const querySelector = pseudoClass == 'neutral' ? `.${pseudoId}` : `.${pseudoId}:${pseudoClass}`;
     css += `${querySelector} { ${Object.entries(styleRules)
       .map(([key, value]) => `${key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`)}: ${value}`)
       .join('; ')} }`

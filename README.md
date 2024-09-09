@@ -1,25 +1,21 @@
-# ⚛️⚡ Vite + React + Typescript Component Library Template
+# 🧑‍🎨CSSIER
 
-## Features
+Inline styling for pseudoelements and pseudoclasses
 
-- ⚛️ [React 18](https://reactjs.org/)
-- 📚 [Storybook 7](https://storybook.js.org/) - Components preview
-- 🖌️ [Tailwind CSS 3](https://tailwindcss.com/)
-- ⏩ [Vite](https://vitejs.dev/) - Run and build the project blazingly fast!
-- ⚡ [Vitest](https://vitest.dev/) - Components Unit Testing
-- 📐 [ESLint](https://eslint.org/) & [Prettier](https://prettier.io/) - Formatting and Linting
-- 🌟 [Typescript](https://www.typescriptlang.org/)
-- 🐶 [Husky](https://typicode.github.io/husky) & [Lint Staged](https://www.npmjs.com/package/lint-staged) - Pre-commit Hooks
-- ⏰ [Release Please](https://github.com/googleapis/release-please) — Generate the changelog with the release-please workflow
-- 👷 [Github Actions](https://github.com/features/actions) — Releasing versions to NPM
-- Initial components setup using [Atomic Design](https://bradfrost.com/blog/post/atomic-web-design/)
+## Requirements
+
+- React >=18.2
+- A head element in your HTML document
+- Good judgements
 
 ## Getting Started
 
-1. Create a new repository using this one as template
-2. Clone your repo
-3. Install dependencies with `pnpm i` (first run `corepack enable` to enable pnpm)
-4. Run `pnpm prepare` command to setup [Husky](https://typicode.github.io/husky) pre-commit hooks.
+1. Install this module using `npm install cssier`
+
+## Usage
+
+- Import the desired elements into your file, eg. `import {Div, A, H1} from 'cssier'`
+-
 
 ## Main Scripts
 

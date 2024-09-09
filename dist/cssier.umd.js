@@ -1,10 +1,10 @@
-;(function (d, i) {
+;(function (d, r) {
   typeof exports == 'object' && typeof module < 'u'
-    ? i(exports, require('react'), require('react/jsx-runtime'))
+    ? r(exports, require('react'), require('react/jsx-runtime'))
     : typeof define == 'function' && define.amd
-    ? define(['exports', 'react', 'react/jsx-runtime'], i)
-    : ((d = typeof globalThis < 'u' ? globalThis : d || self), i((d.cssier = {}), d.React, d['react/jsx-runtime']))
-})(this, function (d, i, l) {
+    ? define(['exports', 'react', 'react/jsx-runtime'], r)
+    : ((d = typeof globalThis < 'u' ? globalThis : d || self), r((d.cssier = {}), d.React, d['react/jsx-runtime']))
+})(this, function (d, r, l) {
   'use strict'
   const u = [
       'active',
@@ -123,13 +123,8 @@
       'part(menu-label)',
       'part(list-group)',
       'part(list-item)',
-    ],
-    f = Object.freeze(
-      Object.defineProperty({ __proto__: null, PseudoClasses: u, PseudoElements: $ }, Symbol.toStringTag, {
-        value: 'Module',
-      }),
-    )
-  function m(e, c) {
+    ]
+  function f(e, c) {
     if (!c) {
       const n = document.head.querySelector(`style#${e}`)
       return n && n.remove(), ''
@@ -139,16 +134,16 @@
     let t = ''
     return (
       Object.entries(c).forEach(([n, a]) => {
-        let r = ''
+        let i = ''
         n === 'neutral'
-          ? (r = `.${e}`)
+          ? (i = `.${e}`)
           : u.includes(n)
-          ? (r = `.${e}:${n}`)
+          ? (i = `.${e}:${n}`)
           : $.includes(n)
-          ? (r = `.${e}::${n}`)
+          ? (i = `.${e}::${n}`)
           : (console.error(`Invalid pseudo class: ${n}`), console.log(u, $, n, n in u, n in $)),
-          (t += `${r} { ${Object.entries(a)
-            .map(([Ic, bc]) => `${Ic.replace(/[A-Z]/g, (gc) => `-${gc.toLowerCase()}`)}: ${bc}`)
+          (t += `${i} { ${Object.entries(a)
+            .map(([hc, Ic]) => `${hc.replace(/[A-Z]/g, (bc) => `-${bc.toLowerCase()}`)}: ${Ic}`)
             .join('; ')} }`)
       }),
       (s.textContent = t),
@@ -167,7 +162,7 @@
       if (e[s] !== c[s]) return typeof e[s] == 'object' && typeof c[s] == 'object' && !N(e[s], c[s]), !1
     return !0
   }
-  const h = [
+  const m = [
     'A',
     'B',
     'C',
@@ -195,73 +190,73 @@
     'Y',
     'Z',
   ]
-  function I() {
+  function h() {
     let e = ''
-    for (let c = 0; c < 6; c++) e += h[Math.floor(Math.random() * 24)]
+    for (let c = 0; c < 6; c++) e += m[Math.floor(Math.random() * 24)]
     return e
   }
   function o(e, c) {
-    const [s] = i.useState(() => c ?? I()),
-      [t, n] = i.useState({}),
-      [a, r] = i.useState('')
+    const [s] = r.useState(() => c ?? h()),
+      [t, n] = r.useState({}),
+      [a, i] = r.useState('')
     return (
-      i.useEffect(() => {
-        N(t, e) || (n(e), r(m(s, e)))
-      }, [s, e, t, r]),
+      r.useEffect(() => {
+        N(t, e) || (n(e), i(f(s, e)))
+      }, [s, e, t, i]),
       [s, a]
     )
   }
-  function b(e) {
+  function I(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('a', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function g(e) {
+  function b(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('abbr', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function y(e) {
+  function g(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('address', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function F(e) {
+  function y(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('area', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function S(e) {
+  function F(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('article', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function k(e) {
+  function S(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('aside', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function T(e) {
+  function k(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('audio', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function v(e) {
+  function T(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('b', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function M(e) {
+  function v(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('base', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function D(e) {
+  function M(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('bdi', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function P(e) {
+  function D(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('bdo', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -276,17 +271,17 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('body', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function L(e) {
+  function P(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('br', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function O(e) {
-    const { children: c, pseudo: s, className: t, pseudoId: n, ...a } = e,
-      [r] = o(s, n)
-    return l.jsx('button', { className: `${t ?? ''} ${r}`, ...a, children: c })
+  function L(e) {
+    const { children: c, pseudo: s, className: t, ...n } = e,
+      [a] = o(s, e.pseudoId)
+    return l.jsx('button', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function p(e) {
+  function O(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('canvas', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -301,22 +296,22 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('cite', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function A(e) {
+  function p(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('code', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function E(e) {
+  function A(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('col', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function G(e) {
+  function E(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('colgroup', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function j(e) {
+  function G(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('data', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -326,22 +321,22 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('datalist', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function U(e) {
+  function j(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('dd', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function V(e) {
+  function U(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('del', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function W(e) {
+  function V(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('details', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function _(e) {
+  function W(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('dfn', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -356,12 +351,12 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('div', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function z(e) {
+  function Z(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('dl', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Z(e) {
+  function z(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('dt', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -381,157 +376,157 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('fieldset', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function x(e) {
+  function _(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('figcaption', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function R(e) {
+  function x(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('figure', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ee(e) {
+  function R(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('footer', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function se(e) {
+  function ee(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('form', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ce(e) {
+  function se(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('h1', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ne(e) {
+  function ce(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('h2', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function te(e) {
+  function ne(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('h3', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ae(e) {
+  function te(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('h4', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function de(e) {
+  function ae(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('h5', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function oe(e) {
+  function de(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('h6', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function le(e) {
+  function oe(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('head', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function re(e) {
+  function le(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('header', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ie(e) {
+  function re(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('hgroup', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ue(e) {
+  function ie(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('hr', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function $e(e) {
+  function ue(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('html', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ne(e) {
+  function $e(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('i', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function fe(e) {
+  function Ne(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('iframe', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function me(e) {
+  function fe(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('img', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function he(e) {
+  function me(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('input', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ie(e) {
+  function he(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('ins', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function be(e) {
+  function Ie(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('kbd', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ge(e) {
+  function be(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('label', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ye(e) {
+  function ge(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('legend', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Fe(e) {
+  function ye(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('li', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Se(e) {
+  function Fe(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('link', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ke(e) {
+  function Se(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('main', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Te(e) {
+  function ke(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('map', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ve(e) {
+  function Te(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('mark', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Me(e) {
+  function ve(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('meta', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function De(e) {
+  function Me(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('meter', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Pe(e) {
+  function De(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('nav', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -546,17 +541,17 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('object', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Le(e) {
+  function Pe(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('ol', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Oe(e) {
+  function Le(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('optgroup', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function pe(e) {
+  function Oe(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('option', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -571,22 +566,22 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('p', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ae(e) {
+  function pe(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('param', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ee(e) {
+  function Ae(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('picture', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ge(e) {
+  function Ee(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('pre', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function je(e) {
+  function Ge(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('progress', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -596,22 +591,22 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('q', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ue(e) {
+  function je(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('rp', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ve(e) {
+  function Ue(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('rt', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function We(e) {
+  function Ve(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('ruby', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function _e(e) {
+  function We(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('s', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -626,12 +621,12 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('script', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ze(e) {
+  function Ze(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('section', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ze(e) {
+  function ze(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('select', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -651,157 +646,157 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('span', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function xe(e) {
+  function _e(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('strong', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Re(e) {
+  function xe(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('style', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function es(e) {
+  function Re(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('sub', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ss(e) {
+  function es(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('summary', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function cs(e) {
+  function ss(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('sup', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ns(e) {
+  function cs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('table', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ts(e) {
+  function ns(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('tbody', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function as(e) {
+  function ts(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('td', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ds(e) {
+  function as(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('template', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function os(e) {
+  function ds(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('textarea', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ls(e) {
+  function os(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('tfoot', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function rs(e) {
+  function ls(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('th', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function is(e) {
+  function rs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('thead', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function us(e) {
+  function is(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('time', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function $s(e) {
+  function us(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('title', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ns(e) {
+  function $s(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('tr', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function fs(e) {
+  function Ns(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('u', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ms(e) {
+  function fs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('ul', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function hs(e) {
+  function ms(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('var', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Is(e) {
+  function hs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('video', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function bs(e) {
+  function Is(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('wbr', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function gs(e) {
+  function bs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('svg', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ys(e) {
+  function gs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('animate', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Fs(e) {
+  function ys(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('animateTransform', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ss(e) {
+  function Fs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('circle', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ks(e) {
+  function Ss(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('clipPath', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ts(e) {
+  function ks(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('defs', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function vs(e) {
+  function Ts(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('desc', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ms(e) {
+  function vs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('ellipse', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ds(e) {
+  function Ms(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feBlend', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ps(e) {
+  function Ds(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feColorMatrix', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -816,17 +811,17 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('feComposite', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ls(e) {
+  function Ps(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feConvolveMatrix', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Os(e) {
+  function Ls(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feDiffuseLighting', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ps(e) {
+  function Os(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feDisplacementMap', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -841,22 +836,22 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('feFlood', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function As(e) {
+  function ps(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feGaussianBlur', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Es(e) {
+  function As(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feImage', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Gs(e) {
+  function Es(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feMerge', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function js(e) {
+  function Gs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feMergeNode', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -866,22 +861,22 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('feMorphology', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Us(e) {
+  function js(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feOffset', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Vs(e) {
+  function Us(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('fePointLight', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Ws(e) {
+  function Vs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feSpecularLighting', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function _s(e) {
+  function Ws(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('feSpotLight', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -896,12 +891,12 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('feTurbulence', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function zs(e) {
+  function Zs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('filter', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Zs(e) {
+  function zs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('foreignObject', { className: `${t ?? ''} ${a}`, ...n, children: c })
@@ -921,263 +916,262 @@
       [a] = o(s, e.pseudoId)
     return l.jsx('line', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function xs(e) {
+  function _s(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('linearGradient', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Rs(e) {
+  function xs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('marker', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ec(e) {
+  function Rs(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('mask', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function sc(e) {
+  function ec(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('metadata', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function cc(e) {
+  function sc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('mpath', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function nc(e) {
+  function cc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('path', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function tc(e) {
+  function nc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('pattern', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ac(e) {
+  function tc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('polygon', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function dc(e) {
+  function ac(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('polyline', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function oc(e) {
+  function dc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('radialGradient', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function lc(e) {
+  function oc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('rect', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function rc(e) {
+  function lc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('stop', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function ic(e) {
+  function rc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('switch', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function uc(e) {
+  function ic(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('symbol', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function $c(e) {
+  function uc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('text', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function Nc(e) {
+  function $c(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('textPath', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function fc(e) {
+  function Nc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('tspan', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function mc(e) {
+  function fc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('use', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  function hc(e) {
+  function mc(e) {
     const { children: c, pseudo: s, className: t, ...n } = e,
       [a] = o(s, e.pseudoId)
     return l.jsx('view', { className: `${t ?? ''} ${a}`, ...n, children: c })
   }
-  ;(d.A = b),
-    (d.Abbr = g),
-    (d.Address = y),
-    (d.Animate = ys),
-    (d.AnimateTransform = Fs),
-    (d.Area = F),
-    (d.Article = S),
-    (d.Aside = k),
-    (d.Audio = T),
-    (d.B = v),
-    (d.Base = M),
-    (d.Bdi = D),
-    (d.Bdo = P),
+  ;(d.A = I),
+    (d.Abbr = b),
+    (d.Address = g),
+    (d.Animate = gs),
+    (d.AnimateTransform = ys),
+    (d.Area = y),
+    (d.Article = F),
+    (d.Aside = S),
+    (d.Audio = k),
+    (d.B = T),
+    (d.Base = v),
+    (d.Bdi = M),
+    (d.Bdo = D),
     (d.Blockquote = w),
     (d.Body = C),
-    (d.Br = L),
-    (d.Button = O),
-    (d.Canvas = p),
+    (d.Br = P),
+    (d.Button = L),
+    (d.Canvas = O),
     (d.Caption = B),
-    (d.Circle = Ss),
+    (d.Circle = Fs),
     (d.Cite = H),
-    (d.ClipPath = ks),
-    (d.Code = A),
-    (d.Col = E),
-    (d.Colgroup = G),
-    (d.Data = j),
+    (d.ClipPath = Ss),
+    (d.Code = p),
+    (d.Col = A),
+    (d.Colgroup = E),
+    (d.Data = G),
     (d.Datalist = q),
-    (d.Dd = U),
-    (d.Defs = Ts),
-    (d.Del = V),
-    (d.Desc = vs),
-    (d.Details = W),
-    (d.Dfn = _),
+    (d.Dd = j),
+    (d.Defs = ks),
+    (d.Del = U),
+    (d.Desc = Ts),
+    (d.Details = V),
+    (d.Dfn = W),
     (d.Dialog = K),
     (d.Div = Q),
-    (d.Dl = z),
-    (d.Dt = Z),
-    (d.Ellipse = Ms),
+    (d.Dl = Z),
+    (d.Dt = z),
+    (d.Ellipse = vs),
     (d.Em = J),
     (d.Embed = X),
-    (d.FeBlend = Ds),
-    (d.FeColorMatrix = Ps),
+    (d.FeBlend = Ms),
+    (d.FeColorMatrix = Ds),
     (d.FeComponentTransfer = ws),
     (d.FeComposite = Cs),
-    (d.FeConvolveMatrix = Ls),
-    (d.FeDiffuseLighting = Os),
-    (d.FeDisplacementMap = ps),
+    (d.FeConvolveMatrix = Ps),
+    (d.FeDiffuseLighting = Ls),
+    (d.FeDisplacementMap = Os),
     (d.FeDistantLight = Bs),
     (d.FeFlood = Hs),
-    (d.FeGaussianBlur = As),
-    (d.FeImage = Es),
-    (d.FeMerge = Gs),
-    (d.FeMergeNode = js),
+    (d.FeGaussianBlur = ps),
+    (d.FeImage = As),
+    (d.FeMerge = Es),
+    (d.FeMergeNode = Gs),
     (d.FeMorphology = qs),
-    (d.FeOffset = Us),
-    (d.FePointLight = Vs),
-    (d.FeSpecularLighting = Ws),
-    (d.FeSpotLight = _s),
+    (d.FeOffset = js),
+    (d.FePointLight = Us),
+    (d.FeSpecularLighting = Vs),
+    (d.FeSpotLight = Ws),
     (d.FeTile = Ks),
     (d.FeTurbulence = Qs),
     (d.Fieldset = Y),
-    (d.Figcaption = x),
-    (d.Figure = R),
-    (d.Filter = zs),
-    (d.Footer = ee),
-    (d.ForeignObject = Zs),
-    (d.Form = se),
+    (d.Figcaption = _),
+    (d.Figure = x),
+    (d.Filter = Zs),
+    (d.Footer = R),
+    (d.ForeignObject = zs),
+    (d.Form = ee),
     (d.G = Js),
-    (d.H1 = ce),
-    (d.H2 = ne),
-    (d.H3 = te),
-    (d.H4 = ae),
-    (d.H5 = de),
-    (d.H6 = oe),
-    (d.Head = le),
-    (d.Header = re),
-    (d.Hgroup = ie),
-    (d.Hr = ue),
-    (d.Html = $e),
-    (d.I = Ne),
-    (d.Iframe = fe),
+    (d.H1 = se),
+    (d.H2 = ce),
+    (d.H3 = ne),
+    (d.H4 = te),
+    (d.H5 = ae),
+    (d.H6 = de),
+    (d.Head = oe),
+    (d.Header = le),
+    (d.Hgroup = re),
+    (d.Hr = ie),
+    (d.Html = ue),
+    (d.I = $e),
+    (d.Iframe = Ne),
     (d.Image = Xs),
-    (d.Img = me),
-    (d.Input = he),
-    (d.Ins = Ie),
-    (d.Kbd = be),
-    (d.Label = ge),
-    (d.Legend = ye),
-    (d.Li = Fe),
+    (d.Img = fe),
+    (d.Input = me),
+    (d.Ins = he),
+    (d.Kbd = Ie),
+    (d.Label = be),
+    (d.Legend = ge),
+    (d.Li = ye),
     (d.Line = Ys),
-    (d.LinearGradient = xs),
-    (d.Link = Se),
-    (d.Main = ke),
-    (d.Map = Te),
-    (d.Mark = ve),
-    (d.Marker = Rs),
-    (d.Mask = ec),
-    (d.Meta = Me),
-    (d.Metadata = sc),
-    (d.Meter = De),
-    (d.Mpath = cc),
-    (d.Nav = Pe),
+    (d.LinearGradient = _s),
+    (d.Link = Fe),
+    (d.Main = Se),
+    (d.Map = ke),
+    (d.Mark = Te),
+    (d.Marker = xs),
+    (d.Mask = Rs),
+    (d.Meta = ve),
+    (d.Metadata = ec),
+    (d.Meter = Me),
+    (d.Mpath = sc),
+    (d.Nav = De),
     (d.Noscript = we),
     (d.Object = Ce),
-    (d.Ol = Le),
-    (d.Optgroup = Oe),
-    (d.Option = pe),
+    (d.Ol = Pe),
+    (d.Optgroup = Le),
+    (d.Option = Oe),
     (d.Output = Be),
     (d.P = He),
-    (d.Param = Ae),
-    (d.Path = nc),
-    (d.Pattern = tc),
-    (d.Picture = Ee),
-    (d.Polygon = ac),
-    (d.Polyline = dc),
-    (d.Pre = Ge),
-    (d.Progress = je),
+    (d.Param = pe),
+    (d.Path = cc),
+    (d.Pattern = nc),
+    (d.Picture = Ae),
+    (d.Polygon = tc),
+    (d.Polyline = ac),
+    (d.Pre = Ee),
+    (d.Progress = Ge),
     (d.Q = qe),
-    (d.RadialGradient = oc),
-    (d.Rect = lc),
-    (d.Rp = Ue),
-    (d.Rt = Ve),
-    (d.Ruby = We),
-    (d.S = _e),
+    (d.RadialGradient = dc),
+    (d.Rect = oc),
+    (d.Rp = je),
+    (d.Rt = Ue),
+    (d.Ruby = Ve),
+    (d.S = We),
     (d.Samp = Ke),
     (d.Script = Qe),
-    (d.Section = ze),
-    (d.Select = Ze),
+    (d.Section = Ze),
+    (d.Select = ze),
     (d.Small = Je),
     (d.Source = Xe),
     (d.Span = Ye),
-    (d.Stop = rc),
-    (d.Strong = xe),
-    (d.Style = Re),
-    (d.Sub = es),
-    (d.Summary = ss),
-    (d.Sup = cs),
-    (d.Svg = gs),
-    (d.Switch = ic),
-    (d.Symbol = uc),
-    (d.Table = ns),
-    (d.Tbody = ts),
-    (d.Td = as),
-    (d.Template = ds),
-    (d.Text = $c),
-    (d.TextPath = Nc),
-    (d.Textarea = os),
-    (d.Tfoot = ls),
-    (d.Th = rs),
-    (d.Thead = is),
-    (d.Time = us),
-    (d.Title = $s),
-    (d.Tr = Ns),
-    (d.Tspan = fc),
-    (d.Types = f),
-    (d.U = fs),
-    (d.Ul = ms),
-    (d.Use = mc),
-    (d.Var = hs),
-    (d.Video = Is),
-    (d.View = hc),
-    (d.Wbr = bs),
+    (d.Stop = lc),
+    (d.Strong = _e),
+    (d.Style = xe),
+    (d.Sub = Re),
+    (d.Summary = es),
+    (d.Sup = ss),
+    (d.Svg = bs),
+    (d.Switch = rc),
+    (d.Symbol = ic),
+    (d.Table = cs),
+    (d.Tbody = ns),
+    (d.Td = ts),
+    (d.Template = as),
+    (d.Text = uc),
+    (d.TextPath = $c),
+    (d.Textarea = ds),
+    (d.Tfoot = os),
+    (d.Th = ls),
+    (d.Thead = rs),
+    (d.Time = is),
+    (d.Title = us),
+    (d.Tr = $s),
+    (d.Tspan = Nc),
+    (d.U = Ns),
+    (d.Ul = fs),
+    (d.Use = fc),
+    (d.Var = ms),
+    (d.Video = hs),
+    (d.View = mc),
+    (d.Wbr = Is),
     (d.useStylesheet = o),
     Object.defineProperty(d, Symbol.toStringTag, { value: 'Module' })
 })
