@@ -1,6 +1,4 @@
-Got it! Here's the updated README with the correct usage of the `<Button />` component from `cssier`:
-
-# cssier
+# 🪅cssier
 
 `cssier` is a React component library designed to simplify inline styling for pseudo-classes and pseudo-elements. With `cssier`, you can easily manage and apply custom styles for standard HTML and SVG elements, making your styling both dynamic and maintainable.
 
