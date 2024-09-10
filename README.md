@@ -64,16 +64,13 @@ The `useStylesheet` hook returns an array where:
 import { useStylesheet } from 'cssier/hooks'
 
 const CustomComponent = (props) => {
-  const { pseudo, pseudoId: id, ...rest } = props
+  const { className, pseudo, pseudoId: id, ...rest } = props
   const [pseudoId, css] = useStylesheet(pseudo, id)
 
   return (
-    <>
-      <style>{css}</style>
-      <div {...rest} className={`${rest.className ?? ''}pseudoId`}>
-        Styled with pseudo-classes and pseudo-elements!
-      </div>
-    </>
+    <div {...rest} className={`${className ?? ''} pseudoId`}>
+      Styled with pseudo-classes and pseudo-elements!
+    </div>
   )
 }
 ```
