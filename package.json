@@ -1,20 +1,27 @@
 {
   "name": "cssier",
   "private": false,
-  "version": "0.1.3",
+  "version": "0.1.4",
   "packageManager": "pnpm@8.4.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/DanBermanTech/cssier"
   },
-  "main": "./dist/cssier.umd.js",
-  "module": "./dist/cssier.es.js",
+  "main": "./dist/cssier.js",
+  "module": "./dist/cssier.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/cssier.es.js",
-      "require": "./dist/cssier.umd.js"
+      "import": "./dist/cssier.js"
+    },
+    "./hooks": {
+      "types": "./dist/hooks/index.d.ts",
+      "import": "./dist/hooks/index.js"
+    },
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.js"
     }
   },
   "engines": {

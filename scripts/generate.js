@@ -178,7 +178,7 @@ const componentTemplate = readFileSync('src/lib/templates/ComponentTemplate.tsx'
 const storyTemplate = readFileSync('src/lib/templates/StoryTemplate.tsx', 'utf8')
 
 if (!existsSync('src/lib/components')) mkdirSync('src/lib/components')
-
+let componentIndex = ``
 function writeComponent(tag) {
   const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
   const component = componentTemplate
@@ -186,6 +186,7 @@ function writeComponent(tag) {
     .replace(/TAG/g, tag)
     .replace('//@ts-nocheck\n', '')
   writeFileSync(`src/lib/components/${componentName}.tsx`, component)
+  componentIndex += `export { default as ${componentName} } from './${componentName}'\n`
 }
 
 function writeStory(tag) {
@@ -213,9 +214,13 @@ function writeIndex() {
   writeFileSync(`src/lib/index.ts`, body)
 }
 
+function writeComponentIndex() {
+  writeFileSync(`src/lib/components/index.ts`, componentIndex)
+}
+
 htmlAndSvgTags.forEach((tag) => {
   writeComponent(tag)
   writeStory(tag)
 })
-
+writeComponentIndex()
 writeIndex()
