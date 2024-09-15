@@ -7,6 +7,7 @@
     "type": "git",
     "url": "https://github.com/DanBermanTech/cssier"
   },
+  "license": "ISC",
   "main": "./dist/cssier.js",
   "module": "./dist/cssier.js",
   "types": "./dist/index.d.ts",
