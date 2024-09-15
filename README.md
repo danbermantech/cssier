@@ -1,6 +1,6 @@
-# 🪅cssier
+# 🎇cssier
 
-`cssier` is a React component library designed to simplify inline styling for pseudo-classes and pseudo-elements. With `cssier`, you can easily manage and apply custom styles for standard HTML and SVG elements, making your styling both dynamic and maintainable.
+cssier allows you to use inline styling for pseudo-classes and pseudo-elements on React components. With `cssier`, you can easily manage and apply custom styles for standard HTML and SVG elements, making your styling both dynamic and maintainable.
 
 ## Features
 
@@ -36,6 +36,8 @@ pnpm add cssier
 
 You can import pre-built React components for HTML and SVG tags from `cssier/components`:
 
+#### Example
+
 ```jsx
 import { Button, Svg } from 'cssier/components'
 
@@ -59,6 +61,8 @@ The `useStylesheet` hook returns an array where:
 
 - The first element is a unique CSS class ID that can be applied to the component.
 - The second element is a string of CSS styles that were injected into the document. This is useful for debugging, though you typically won't need to use it in production.
+
+#### Example
 
 ```jsx
 import { useStylesheet } from 'cssier/hooks'
