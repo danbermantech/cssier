@@ -1,4 +1,6 @@
 import type { Preview } from '@storybook/react'
+import theme from './theme'
+import { s } from 'vitest/dist/types-3c7dbfa5.js'
 
 const preview: Preview = {
   parameters: {
@@ -7,6 +9,12 @@ const preview: Preview = {
       matchers: {
         color: /(background|color)$/i,
         date: /Date$/,
+      },
+    },
+    theme,
+    options: {
+      storySort: {
+        order: ['hooks/*', 'components/*'],
       },
     },
   },

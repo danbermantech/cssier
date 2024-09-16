@@ -1,4 +1,4 @@
-import { PseudoClass, PseudoElement } from './types'
+import type { PseudoClass, PseudoElement } from './types'
 
 export const PseudoClasses: PseudoClass[] = [
   'active',

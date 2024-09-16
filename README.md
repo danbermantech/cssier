@@ -1,5 +1,11 @@
 # 🎇cssier
 
+![sizeMin](https://img.shields.io/bundlephobia/min/cssier)
+![sizeMinZip](https://img.shields.io/bundlephobia/minzip/cssier)
+![languages](https://img.shields.io/github/languages/top/danbermantech/cssier)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/danbermantech/cssier)
+![NPM License](https://img.shields.io/npm/l/cssier)
+
 cssier allows you to use inline styling for pseudo-classes and pseudo-elements on React components. With `cssier`, you can easily manage and apply custom styles for standard HTML and SVG elements, making your styling both dynamic and maintainable.
 
 ## Features
@@ -39,14 +45,16 @@ You can import pre-built React components for HTML and SVG tags from `cssier/com
 #### Example
 
 ```jsx
-import { Button, Svg } from 'cssier/components'
+import { Button } from 'cssier/components'
 
 const MyComponent = () => (
+  const [count, setCount] = useState(0)
   <div>
-    <Button onClick={() => alert('Clicked!')}>Click Me</Button>
-    <Svg width="100" height="100">
-      <circle cx="50" cy="50" r="40" stroke="black" strokeWidth="3" fill="red" />
-    </Svg>
+    <Button pseudo={{
+      hover:{
+        background:['red','green','blue'][count%3],
+        transform:`scale(${1+count/10})`
+      }}} onClick={() => setCount(prev=>prev+1)}>Click Me</Button>
   </div>
 )
 ```
@@ -157,7 +165,7 @@ To contribute to `cssier`:
 
 ## License
 
-`cssier` is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+`cssier` is licensed under the ISC License. See the [LICENSE](LICENSE) file for more details.
 
 ## Additional Resources
 

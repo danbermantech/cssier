@@ -1,3 +1,5 @@
+import { CSSProperties } from 'react'
+
 export type PseudoClass =
   | 'active'
   | 'checked'
@@ -142,5 +144,41 @@ export type ExtendedCssProperties = React.CSSProperties & {
 }
 
 export type PseudoCss = Partial<{
-  [key in PseudoClass | 'neutral' | PseudoElement]: React.CSSProperties | PseudoCss
+  [key in PseudoClass | 'neutral' | PseudoElement]: ExtendedCssProperties & { and?: PseudoCss }
 }>
+
+export type CssVariableName = `--${string}`
+
+export type CssPropertySyntax =
+  | '<length>'
+  | '<number>'
+  | '<percentage>'
+  | '<length-percentage>'
+  | '<color>'
+  | '<image>'
+  | '<url>'
+  | '<integer>'
+  | '<angle>'
+  | '<time>'
+  | '<resolution>'
+  | '<transform-function>'
+  | '<custom-ident>'
+
+export type ICssProperty = {
+  syntax: CssPropertySyntax | CssPropertySyntax[]
+  name: CssVariableName
+  inherits: boolean
+  initialValue: string
+}
+
+export type AnimationDefinition = {
+  delay?: CSSProperties['animationDelay']
+  direction?: CSSProperties['animationDirection']
+  duration?: CSSProperties['animationDuration']
+  fillMode?: CSSProperties['animationFillMode']
+  iterationCount?: CSSProperties['animationIterationCount']
+  name: CSSProperties['animationName']
+  playState?: CSSProperties['animationPlayState']
+  timingFunction?: CSSProperties['animationTimingFunction']
+  keyframes: Record<string, ExtendedCssProperties>
+}

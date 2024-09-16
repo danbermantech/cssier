@@ -22,27 +22,22 @@ export const Primary: Story = {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        boxShadow: '0 0 8px 2px #232425',
       },
       hover: {
         background: '#232425aa',
       },
-      before: {
-        content: "'🦜'",
-        fontSize: '1.5rem',
-        display: 'inline-block',
+      focus: {
+        border: '2px solid #232425',
       },
-      after: {
-        content: "'🎇'",
-        fontSize: '1.5rem',
-        display: 'inline-block',
+      active: {
+        background: '#232425',
+        color: '#fff',
       },
-      focus: {},
-      active: {},
       visited: {},
       link: {},
       disabled: {},
       enabled: {},
     },
-    children: 'Please enjoy this example of the "COMPONENT_NAME" component',
   },
 }

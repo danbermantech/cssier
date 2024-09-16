@@ -5,23 +5,19 @@ const htmlAndSvgTags = [
   'a',
   'abbr',
   'address',
-  'area',
+  // 'area',
   'article',
   'aside',
-  'audio',
   'b',
-  'base',
   'bdi',
   'bdo',
   'blockquote',
   'body',
-  'br',
   'button',
   'canvas',
   'caption',
   'cite',
   'code',
-  'col',
   'colgroup',
   'data',
   'datalist',
@@ -34,7 +30,6 @@ const htmlAndSvgTags = [
   'dl',
   'dt',
   'em',
-  'embed',
   'fieldset',
   'figcaption',
   'figure',
@@ -49,22 +44,17 @@ const htmlAndSvgTags = [
   'head',
   'header',
   'hgroup',
-  'hr',
   'html',
   'i',
   'iframe',
-  'img',
-  'input',
   'ins',
   'kbd',
   'label',
   'legend',
   'li',
-  'link',
   'main',
   'map',
   'mark',
-  'meta',
   'meter',
   'nav',
   'noscript',
@@ -74,7 +64,6 @@ const htmlAndSvgTags = [
   'option',
   'output',
   'p',
-  'param',
   'picture',
   'pre',
   'progress',
@@ -88,7 +77,6 @@ const htmlAndSvgTags = [
   'section',
   'select',
   'small',
-  'source',
   'span',
   'strong',
   'style',
@@ -110,7 +98,6 @@ const htmlAndSvgTags = [
   'ul',
   'var',
   'video',
-  'wbr',
 
   // SVG tags
   'svg',
@@ -167,15 +154,41 @@ const htmlAndSvgTags = [
   'view',
 ]
 
+const childless = [
+  'area',
+  'audio',
+  'base',
+  'br',
+  'col',
+  'embed',
+  'hr',
+  'img',
+  'input',
+  'link',
+  'meta',
+  'param',
+  'source',
+  'wbr',
+]
+
 if (!existsSync('src/lib/templates')) throw Error('Template folder not found')
 if (!existsSync('src/lib/templates/ComponentTemplate.tsx'))
   throw Error('Component template not found at src/lib/templates/ComponentTemplate.tsx')
 if (!existsSync('src/lib/templates/StoryTemplate.tsx'))
   throw Error('Story template not found at src/lib/templates/StoryTemplate.tsx')
+if (!existsSync('src/lib/templates/ChildlessComponentTemplate.tsx'))
+  throw Error('Childless Component template not found at src/lib/templates/ChildlessComponentTemplate.tsx')
+if (!existsSync('src/lib/templates/ChildlessStoryTemplate.tsx'))
+  throw Error('Childless Story template not found at src/lib/templates/ChildlessStoryTemplate.tsx')
+if (!existsSync('src/lib/templates/InputStoryTemplate.tsx'))
+  throw Error('Input Story template not found at src/lib/templates/InputStoryTemplate.tsx')
 if (!existsSync('src/lib/hooks')) throw Error('Hooks folder not found at src/lib/hooks')
 
 const componentTemplate = readFileSync('src/lib/templates/ComponentTemplate.tsx', 'utf8')
 const storyTemplate = readFileSync('src/lib/templates/StoryTemplate.tsx', 'utf8')
+const childlessComponentTemplate = readFileSync('src/lib/templates/ChildlessComponentTemplate.tsx', 'utf8')
+const childlessStoryTemplate = readFileSync('src/lib/templates/ChildlessStoryTemplate.tsx', 'utf8')
+const inputStoryTemplate = readFileSync('src/lib/templates/InputStoryTemplate.tsx', 'utf8')
 
 if (!existsSync('src/lib/components')) mkdirSync('src/lib/components')
 let componentIndex = ``
@@ -189,9 +202,35 @@ function writeComponent(tag) {
   componentIndex += `export { default as ${componentName} } from './${componentName}'\n`
 }
 
+function writeChildlessComponent(tag) {
+  const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
+  const component = childlessComponentTemplate
+    .replace(/COMPONENT_NAME/g, componentName)
+    .replace(/TAG/g, tag)
+    .replace('//@ts-nocheck\n', '')
+  writeFileSync(`src/lib/components/${componentName}.tsx`, component)
+  componentIndex += `export { default as ${componentName} } from './${componentName}'\n`
+}
+
+function writeChildlessStory(tag) {
+  const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
+  const story = childlessStoryTemplate
+    .replace(/COMPONENT_NAME/g, componentName)
+    .replace(/TAG/g, tag)
+    .replace('//@ts-nocheck\n', '')
+  writeFileSync(`src/lib/components/${componentName}.stories.tsx`, story)
+  // componentIndex += `export { default as ${componentName} } from './${componentName}'\n`
+}
+
 function writeStory(tag) {
   const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
   const story = storyTemplate.replace(/COMPONENT_NAME/g, componentName).replace('//@ts-nocheck\n', '')
+  writeFileSync(`src/lib/components/${componentName}.stories.tsx`, story)
+}
+
+function writeInputStory(tag = 'input') {
+  const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
+  const story = inputStoryTemplate.replace(/COMPONENT_NAME/g, componentName).replace('//@ts-nocheck\n', '')
   writeFileSync(`src/lib/components/${componentName}.stories.tsx`, story)
 }
 
@@ -201,12 +240,13 @@ function writeIndex() {
   let index = ``
   hookDir.forEach((hook) => {
     if (hook !== 'index.ts') {
+      if (hook.split('.').length > 2) return
       const hookName = hook.split('.')[0]
       lines.push(`export { default as ${hookName} } from './hooks/${hookName}';\n`)
       // index += `export { default as ${hookName} } from './hooks/${hookName}'\n`
     }
   })
-  htmlAndSvgTags.forEach((tag) => {
+  ;[...htmlAndSvgTags, ...childless].forEach((tag) => {
     const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
     lines.push(`export { default as ${componentName} } from './components/${componentName}';\n`)
   })
@@ -222,5 +262,11 @@ htmlAndSvgTags.forEach((tag) => {
   writeComponent(tag)
   writeStory(tag)
 })
+childless.forEach((tag) => {
+  writeChildlessComponent(tag)
+  writeChildlessStory(tag)
+})
+// writeC()
+writeInputStory()
 writeComponentIndex()
 writeIndex()
