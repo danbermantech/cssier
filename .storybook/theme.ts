@@ -3,7 +3,7 @@ import { create } from '@storybook/theming'
 export default create({
   base: 'dark',
   brandTitle: 'Cssier',
-  brandUrl: 'https://example.com',
+  brandUrl: 'https://cssier.danberman.dev',
   brandImage: 'https://i.ibb.co/rsLRtbC/Slice-2.png',
   brandTarget: '_self',
   appBg: '#24082c',
