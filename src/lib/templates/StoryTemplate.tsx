@@ -45,4 +45,5 @@ export const Primary: Story = {
     },
     children: 'Please enjoy this example of the "COMPONENT_NAME" component',
   },
+  tags: ['autodocs'],
 }

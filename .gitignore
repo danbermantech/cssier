@@ -24,6 +24,10 @@ dist-ssr
 *.sln
 *.sw?
 
+# created by `npm run generate` script
+src/lib/components
+src/lib/index.ts
+
 # Storybook
 storybook-static
 

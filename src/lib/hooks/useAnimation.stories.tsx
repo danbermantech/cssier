@@ -79,4 +79,5 @@ export const Primary: Story = {
       },
     },
   },
+  tags: ['autodocs'],
 }

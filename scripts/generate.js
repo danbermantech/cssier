@@ -192,45 +192,42 @@ const inputStoryTemplate = readFileSync('src/lib/templates/InputStoryTemplate.ts
 
 if (!existsSync('src/lib/components')) mkdirSync('src/lib/components')
 let componentIndex = ``
-function writeComponent(tag) {
+
+function buildTemplate(template, tag) {
   const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
-  const component = componentTemplate
-    .replace(/COMPONENT_NAME/g, componentName)
-    .replace(/TAG/g, tag)
-    .replace('//@ts-nocheck\n', '')
+  return [
+    template
+      .replace(/COMPONENT_NAME/g, componentName)
+      .replace(/TAG/g, tag)
+      .replace(/\/\/@ts-nocheck(\r)*\n/, ''),
+    componentName,
+  ]
+}
+
+function writeComponent(tag) {
+  const [component, componentName] = buildTemplate(componentTemplate, tag)
   writeFileSync(`src/lib/components/${componentName}.tsx`, component)
   componentIndex += `export { default as ${componentName} } from './${componentName}'\n`
 }
 
 function writeChildlessComponent(tag) {
-  const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
-  const component = childlessComponentTemplate
-    .replace(/COMPONENT_NAME/g, componentName)
-    .replace(/TAG/g, tag)
-    .replace('//@ts-nocheck\n', '')
+  const [component, componentName] = buildTemplate(childlessComponentTemplate, tag)
   writeFileSync(`src/lib/components/${componentName}.tsx`, component)
   componentIndex += `export { default as ${componentName} } from './${componentName}'\n`
 }
 
 function writeChildlessStory(tag) {
-  const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
-  const story = childlessStoryTemplate
-    .replace(/COMPONENT_NAME/g, componentName)
-    .replace(/TAG/g, tag)
-    .replace('//@ts-nocheck\n', '')
+  const [story, componentName] = buildTemplate(childlessStoryTemplate, tag)
   writeFileSync(`src/lib/components/${componentName}.stories.tsx`, story)
-  // componentIndex += `export { default as ${componentName} } from './${componentName}'\n`
 }
 
 function writeStory(tag) {
-  const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
-  const story = storyTemplate.replace(/COMPONENT_NAME/g, componentName).replace('//@ts-nocheck\n', '')
+  const [story, componentName] = buildTemplate(storyTemplate, tag)
   writeFileSync(`src/lib/components/${componentName}.stories.tsx`, story)
 }
 
 function writeInputStory(tag = 'input') {
-  const componentName = tag.charAt(0).toUpperCase() + tag.slice(1)
-  const story = inputStoryTemplate.replace(/COMPONENT_NAME/g, componentName).replace('//@ts-nocheck\n', '')
+  const [story, componentName] = buildTemplate(inputStoryTemplate, tag)
   writeFileSync(`src/lib/components/${componentName}.stories.tsx`, story)
 }
 
@@ -243,7 +240,6 @@ function writeIndex() {
       if (hook.split('.').length > 2) return
       const hookName = hook.split('.')[0]
       lines.push(`export { default as ${hookName} } from './hooks/${hookName}';\n`)
-      // index += `export { default as ${hookName} } from './hooks/${hookName}'\n`
     }
   })
   ;[...htmlAndSvgTags, ...childless].forEach((tag) => {
@@ -266,7 +262,6 @@ childless.forEach((tag) => {
   writeChildlessComponent(tag)
   writeChildlessStory(tag)
 })
-// writeC()
 writeInputStory()
 writeComponentIndex()
 writeIndex()

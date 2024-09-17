@@ -70,4 +70,5 @@ export const Primary: Story = {
       enabled: {},
     },
   },
+  tags: ['autodocs'],
 }

@@ -1,4 +1,4 @@
-const { rmdirSync, rmSync } = require('fs')
+const { rmSync } = require('fs')
 
 rmSync('src/lib/components', { recursive: true })
 rmSync('src/lib/index.ts')
