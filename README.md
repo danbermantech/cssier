@@ -1,12 +1,12 @@
-# 🎇cssier
+# 🎇CSSier
+
+Inline styling for pseudo-classes,pseudo-elements, and animation on React components. With `cssier`, you can easily manage and apply custom styles for standard HTML and SVG elements, making your styling both dynamic and maintainable.
 
 ![sizeMin](https://img.shields.io/bundlephobia/min/cssier)
 ![sizeMinZip](https://img.shields.io/bundlephobia/minzip/cssier)
 ![languages](https://img.shields.io/github/languages/top/danbermantech/cssier)
 ![GitHub package.json version](https://img.shields.io/github/package-json/v/danbermantech/cssier)
 ![NPM License](https://img.shields.io/npm/l/cssier)
-
-cssier allows you to use inline styling for pseudo-classes and pseudo-elements on React components. With `cssier`, you can easily manage and apply custom styles for standard HTML and SVG elements, making your styling both dynamic and maintainable.
 
 ## Features
 
