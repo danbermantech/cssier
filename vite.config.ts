@@ -1,11 +1,11 @@
 import react from '@vitejs/plugin-react'
 import path from 'node:path'
-import { defineConfig } from 'vitest/config'
 import dts from 'vite-plugin-dts'
-import { UserConfigExport } from 'vite'
 import { name } from './package.json'
+import { UserConfig } from 'vite'
+import { defineConfig } from 'vite'
 
-const app = async (): Promise<UserConfigExport> => {
+const app = (): UserConfig => {
   /**
    * Removes everything before the last
    * @octocat/library-repo -> library-repo
@@ -47,10 +47,6 @@ const app = async (): Promise<UserConfigExport> => {
           },
         },
       },
-    },
-    test: {
-      globals: true,
-      environment: 'jsdom',
     },
   })
 }
