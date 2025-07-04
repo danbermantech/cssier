@@ -135,8 +135,6 @@ export type PseudoElement =
   | 'part(list-group)'
   | 'part(list-item)'
 
-// console.log(shadowAndPseudoElements);
-
 type CssVariable = `--${string}`
 
 export type ExtendedCssProperties = React.CSSProperties & {
@@ -180,5 +178,8 @@ export type AnimationDefinition = {
   name: CSSProperties['animationName']
   playState?: CSSProperties['animationPlayState']
   timingFunction?: CSSProperties['animationTimingFunction']
-  keyframes: Record<string, ExtendedCssProperties>
+  keyframes: Record<
+    `${number}%` | `${number}${number}%` | `${number}${number}${number}%` | 'from' | 'to',
+    ExtendedCssProperties
+  >
 }
