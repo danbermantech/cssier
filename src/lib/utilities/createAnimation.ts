@@ -1,4 +1,4 @@
-import type { AnimationDefinition } from '../types'
+import type { AnimationDefinition, ExtendedCssProperties } from '../types'
 
 export default function createAnimation(animationId: string, definition: AnimationDefinition | undefined) {
   // Check if there are styles to apply
@@ -23,7 +23,7 @@ export default function createAnimation(animationId: string, definition: Animati
   css += `@keyframes ${definition?.name || animationId} {`
   Object.entries(definition.keyframes).forEach(([keyframe, styleRules]) => {
     css += `${keyframe} {\n`
-    css += Object.entries(styleRules)
+    css += Object.entries(styleRules as ExtendedCssProperties)
       .map(([key, value]) => `${key.replace(/[A-Z]/g, (match) => `-${match.toLowerCase()}`)}: ${value}`)
       .join('; \n')
     css += '\n}\n'

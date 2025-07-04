@@ -175,11 +175,10 @@ export type AnimationDefinition = {
   duration?: CSSProperties['animationDuration']
   fillMode?: CSSProperties['animationFillMode']
   iterationCount?: CSSProperties['animationIterationCount']
-  name?: CSSProperties['animationName']
+  name: CSSProperties['animationName']
   playState?: CSSProperties['animationPlayState']
   timingFunction?: CSSProperties['animationTimingFunction']
-  keyframes: Record<
-    `${number}%` | `${number}${number}%` | `${number}${number}${number}%` | 'from' | 'to',
-    ExtendedCssProperties
+  keyframes: Partial<
+    Record<`${number}%` | `${number}${number}%` | `${number}${number}${number}%` | 'from' | 'to', ExtendedCssProperties>
   >
 }
