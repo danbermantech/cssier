@@ -10,7 +10,7 @@ export default function createAnimation(animationId: string, definition: Animati
 
   // Find existing <style> element or create a new one
   let style = document.head.querySelector(`style#${animationId}`) as HTMLStyleElement
-  console.log(animationId)
+
   if (!style) {
     style = document.createElement('style')
     style.id = animationId
@@ -20,7 +20,7 @@ export default function createAnimation(animationId: string, definition: Animati
 
   // Generate CSS rules
   let css = ''
-  css += `@keyframes ${definition.name} {`
+  css += `@keyframes ${definition?.name || animationId} {`
   Object.entries(definition.keyframes).forEach(([keyframe, styleRules]) => {
     css += `${keyframe} {\n`
     css += Object.entries(styleRules)
@@ -39,7 +39,7 @@ export default function createAnimation(animationId: string, definition: Animati
   const playState = definition.playState ?? 'running'
   const timingFunction = definition.timingFunction ?? 'ease'
 
-  css += `    animation-name: ${definition.name};\n`
+  css += `    animation-name: ${definition?.name ?? animationId};\n`
   if (definition.delay) css += `    animation-delay: ${delay};\n`
   if (definition.direction) css += `    animation-direction: ${direction};\n`
   if (definition.duration) css += `    animation-duration: ${duration};\n`
@@ -51,7 +51,9 @@ export default function createAnimation(animationId: string, definition: Animati
 
   style.textContent = css
 
-  const animationPropertyValue = `${definition.name} ${duration} ${timingFunction} ${delay} ${iterationCount} ${direction} ${fillMode} ${playState}`
+  const animationPropertyValue = `${
+    definition.name ?? animationId
+  } ${duration} ${timingFunction} ${delay} ${iterationCount} ${direction} ${fillMode} ${playState}`
 
   return [css, animationPropertyValue]
 }

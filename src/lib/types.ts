@@ -175,7 +175,7 @@ export type AnimationDefinition = {
   duration?: CSSProperties['animationDuration']
   fillMode?: CSSProperties['animationFillMode']
   iterationCount?: CSSProperties['animationIterationCount']
-  name: CSSProperties['animationName']
+  name?: CSSProperties['animationName']
   playState?: CSSProperties['animationPlayState']
   timingFunction?: CSSProperties['animationTimingFunction']
   keyframes: Record<
